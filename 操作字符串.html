@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 'abaasdffggghhjjkkgfddsssss3444343'
+			var str = 'abaasdffggghhjjkkgfddsssss3444343'
+			// 1、 字符串的长度
+			console.log('字符串的长度是' + str.length)
+			// 2、 取出指定位置的字符，如：0,3,5,9等
+			console.log('指定位置字符', str[0], str[3], str[5], str[9])
+			// 3、 查找指定字符是否在以上字符串中存在，如：i，c ，b等
+			function searchStr(x) {
+				if (str.indexOf(x) == 1) {
+					return x + '存在于str字符串中'
+				} else {
+					return x + '不存在于str字符串中'
+				}
+			}
+			console.log(searchStr('i'))
+			console.log(searchStr('c'))
+			console.log(searchStr('b'))
+			// 4、 替换指定的字符，如：g替换为22,ss替换为b等操作方法
+			var newStr = str.replace(/ss/g, 'b')
+			console.log('ss替换为b ' + newStr)
+			// 5、 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+			var cutStr = str.slice(1, 6)
+			console.log(cutStr)
+			// 6、 找出以上字符串中出现次数最多的字符和出现的次数
+			var arr = str.split('')
+			var json = {}
+			for (var i = 0; i < arr.length; i++) {
+				if (json[arr[i]]) {
+					json[arr[i]] += 1
+				} else {
+					json[arr[i]] = 1
+				}
+			}
+			var num = 0
+
+			var number = ''
+
+			for (var k in json) {
+				if (json[k] > num) {
+					num = json[k]
+
+					number = k
+				}
+			}
+
+			console.log('出现次数：' + num + '最多的字符：' + number)
+			// 7、 遍历字符串，并将遍历出的字符两头添加符号“@”
+			var strArr = str.split('')
+			var newStrArr = ''
+			for (let i = 0; i < strArr.length - 1; i++) {
+				var a = '@' + strArr[i] + '@'
+				newStrArr += a
+			}
+			console.log(newStrArr)
+		</script>
+	</body>
+</html>
